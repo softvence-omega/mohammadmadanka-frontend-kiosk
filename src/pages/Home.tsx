@@ -1,9 +1,12 @@
+import CommonWrapper from "@/common/CommonWrapper";
+import Banner from "@/components/shared/Banner";
 
-
-const HomePage  = () => {
+const Home = () => {
   return (
-   <h1>hello </h1>
-  )
-}
+    <CommonWrapper>
+      <Banner></Banner>
+    </CommonWrapper>
+  );
+};
 
-export default HomePage 
+export default Home;

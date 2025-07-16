@@ -22,7 +22,7 @@ const Header = () => {
     <CommonWrapper>
       <nav className="w-full ">
         {/* Middle Section */}
-        <div className="bg-[#FF5757] py-8 px-4 flex items-center justify-between relative">
+        <div className="bg-[#FF5757] py-8 px-10 flex items-center justify-between relative">
           {/* Placeholder for left alignment to balance the cart icon */}
           <div className="w-8 h-8" />
           <img

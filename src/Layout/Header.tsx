@@ -1,36 +1,40 @@
-import { NavItem } from "@/types"
-import { ShoppingCart } from "lucide-react"
-import { NavLink } from "react-router-dom"
+import NavbarLink from "@/components/shared/NavbarLink";
+import { NavItem } from "@/types";
+import { ShoppingCart } from "lucide-react";
 
-
-
-const Header  = ({navData}:{navData:NavItem[]}) => {
-
+const Header = () => {
+  const navData: NavItem[] = [
+    {
+      title: "Card",
+      id: 1,
+    },
+    {
+      title: "Gift",
+      id: 2,
+    },
+    {
+      title: "Christmas",
+      id: 3,
+    },
+  ];
   return (
     <nav className="w-full max-w-[1440px] mx-auto">
-
       {/* Middle Section */}
-      <div className="bg-[#FF5757] py-8 px-4 flex items-center justify-between relative">
+      <div className="bg-[#FF5757] py-8 flex items-center justify-between relative">
         {/* Placeholder for left alignment to balance the cart icon */}
         <div className="w-8 h-8" />
-        <h1 className="text-white text-5xl font-extrabold tracking-wider text-center flex-grow">MANTEL WORTHY</h1>
+        <img
+          src="/public/collection 3.jpg"
+          alt="Mantel Worthy Logo"
+          className="h-20  mx-auto" // Adjust height as needed, object-contain to preserve aspect ratio
+        />
         <ShoppingCart className="h-8 w-8 text-white" />
       </div>
 
       {/* Bottom Bar */}
-      <div className="bg-[#54CDD1] py-4 flex justify-center gap-8">
-        {
-          navData.map((item)=> <NavLink to="#" className="text-white font-medium text-lg">
-          {" "}
-          
-          {item.title}
-        </NavLink>)
-        }
-       
-    
-      </div>
+      <NavbarLink navData={navData}></NavbarLink>
     </nav>
-  )
-}
+  );
+};
 
-export default Header 
+export default Header;

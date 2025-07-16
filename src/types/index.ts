@@ -14,3 +14,8 @@ export interface User {
     component: React.ComponentType;
     exact?: boolean;
   };
+
+  export type NavItem = {
+  title: string;
+  id: number;
+};

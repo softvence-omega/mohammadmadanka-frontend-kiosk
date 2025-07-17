@@ -1,30 +1,44 @@
-import CategoryCard from "../shared/CategoryCard";
+// components/ProductGrid.tsx
 
-const Category = () => {
-  const categories = [
-    {
-      imageSrc: "/placeholder.svg?height=100&width=100", // Placeholder for the card image
-      altText: "Greeting Card",
-      categoryName: "Cards",
-    },
-    {
-      imageSrc: "/placeholder.svg?height=100&width=100", // Placeholder for the mug image
-      altText: "Red Mug",
-      categoryName: "Mugs",
-    },
-    {
-      imageSrc: "/placeholder.svg?height=100&width=100", // Placeholder for the teddy bear image
-      altText: "Teddy Bear",
-      categoryName: "Teddy Bears",
-    },
-  ];
+const products = [
+  { title: "Cards", image: "cards/p1.jpg", alt: "Cards" },
+  { title: "Mugs", image: "cards/p2.png", alt: "Mugs" },
+  { title: "Teddy Bears", image: "cards/p3.png", alt: "Teddy Bears" },
+  { title: "Cushions", image: "/cushions.png", alt: "Cushions" },
+  { title: "Ornaments", image: "/ornaments.png", alt: "Ornaments" },
+  { title: "Tumblers", image: "/tumblers.png", alt: "Tumblers" },
+  { title: "Money Boxes", image: "/piggy.png", alt: "Money Boxes" },
+  { title: "Photo Frames", image: "/photo-frames.png", alt: "Photo Frames" },
+  { title: "Coasters", image: "/coasters.png", alt: "Coasters" },
+];
+
+const ProductGrid = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
-      {categories.map((category, index) => (
-        <CategoryCard category={category}></CategoryCard>
+    <div className="w-[1000px] mx-auto flex flex-wrap justify-between gap-y-8">
+      {products.map((item) => (
+        <div
+          key={item.title}
+          className="relative w-[312px] h-[442px] border border-[#FF5757] rounded-2xl bg-white flex flex-col items-center"
+        >
+          {/* Circular Blue Background */}
+          <div className="w-[272px] h-[272px] bg-[#EFFCFD] rounded-full mt-8 flex items-center justify-center">
+            <img
+              src={item.image}
+              alt={item.alt}
+              className="max-h-[180px] object-contain"
+            />
+          </div>
+
+          {/* Title */}
+          <div className="absolute bottom-10 w-full text-center">
+            <p className="text-[32px] font-normal capitalize text-[#1E1E1E] font-[Baloo]">
+              {item.title}
+            </p>
+          </div>
+        </div>
       ))}
     </div>
   );
 };
 
-export default Category;
+export default ProductGrid;

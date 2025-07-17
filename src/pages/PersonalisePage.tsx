@@ -1,7 +1,7 @@
 import CommonWrapper from '@/common/CommonWrapper';
 import AddCard from '../components/addToCard/AddCard';
 import BackButton from '@/components/shared/BackButton';
-import PersonaliseButton from '@/components/Personalise/Persionalise';
+import PersonaliseButton from '@/components/Personalise/Personalise';
 
 export default function PersonalisePage() {
   return (

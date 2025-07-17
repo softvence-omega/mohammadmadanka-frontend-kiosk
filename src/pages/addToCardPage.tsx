@@ -6,9 +6,9 @@ import BackButton from '@/components/shared/BackButton';
 export default function AddToCard() {
   return (
     <CommonWrapper>
-      <div className="mx-auto mt-[80px] ml-[40px] mr-[40px]">
+      <div className="mx-auto mt-[80px] ml-[40px] mr-[40px] mb-20">
         {/* Header */}
-        <div className="flex items-center justify-between w-full ">
+        <div className="flex items-center justify-between w-full">
           {/* Back Button */}
           <BackButton />
           {/* Title */}
@@ -17,7 +17,7 @@ export default function AddToCard() {
           </span>
         </div>
 
-        <div className="flex flex-col mt-10 items-center gap-20 w-full max-w-[605px] h-[1058px] mx-auto">
+        <div className="flex flex-col mt-16 items-center gap-20 w-full max-w-[605px] h-[1058px] mx-auto">
           {/* Birthday Card Section  <AddCard />*/}
 
 

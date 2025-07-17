@@ -69,7 +69,7 @@ const dummyCards = [
 export default function BirthdayCardPage() {
     return (
         <CommonWrapper>
-            <div className="mx-auto mt-[80px] ml-[40px] mr-[40px]">
+            <div className="mx-auto mt-[75px] ml-[40px] mr-[40px] !mb-[40x]">
                 {/* Header */}
                 <div className="flex items-center justify-between w-[663px]">
                     {/* Back Button */}
@@ -79,7 +79,7 @@ export default function BirthdayCardPage() {
                 </div>
 
                 {/* Search bar */}
-                <div className='flex justify-center mt-10'>
+                <div className='flex justify-center mt-18'>
                     <SearchBar />
                 </div>
 
@@ -87,14 +87,14 @@ export default function BirthdayCardPage() {
 
                 {/* Filters & Rude Toggle */}
 
-                <div className="flex flex-col mt-10">
+                <div className="flex flex-col mt-15">
                   
                     
                     <FilterButtons />
                     <NextButton />               
                 </div>
                 <div className='mt-10'> <RudeToggle /></div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-5 ">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 mt-5 ">
                     {dummyCards.map((card, index) => (
                         <Card
                             key={index}

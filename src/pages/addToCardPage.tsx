@@ -1,35 +1,43 @@
+// pages/AddToCard.tsx
+'use client';
+
 import CommonWrapper from '@/common/CommonWrapper';
 import AddCard from '../components/addToCard/AddCard';
 import AddButton from '@/components/addToCard/AddButton';
 import BackButton from '@/components/shared/BackButton';
 
+const fakeCardData = {
+  id: 1,
+  title: "Birthday Card",
+  image: "/cards/birthday.png",
+  description: "Lorem ipsum dolor sit amet consectetur. Magna fusce ipsum sodales turpis dignissim eu ullamcorper.",
+  size: "Standard, 15 X 21 cm",
+  price: 49.99
+};
+
 export default function AddToCard() {
+  const handleAddToCart = () => {
+    console.log("Added to cart:", fakeCardData);
+    alert(`"${fakeCardData.title}" added to cart!`);
+    // You can later replace this with cart context or localStorage
+  };
+
   return (
     <CommonWrapper>
       <div className="mx-auto mt-[80px] ml-[40px] mr-[40px] mb-20">
         {/* Header */}
         <div className="flex items-center justify-between w-full">
-          {/* Back Button */}
           <BackButton />
-          {/* Title */}
           <span className="w-[61px] h-[24px] text-[20px] leading-[120%] font-normal font-['Baloo'] underline text-[#1E1E1E]">
-            $49.99
+            ${fakeCardData.price.toFixed(2)}
           </span>
         </div>
 
         <div className="flex flex-col mt-16 items-center gap-20 w-full max-w-[605px] h-[1058px] mx-auto">
-          {/* Birthday Card Section  <AddCard />*/}
-
-
-        {/* Add To Cart Button */}
-        <AddButton />
+          <AddCard card={fakeCardData} />
+          <AddButton onAddToCart={handleAddToCart} />
+        </div>
       </div>
-      </div>
-       
-
     </CommonWrapper>
-
-  
-);
-
+  );
 }

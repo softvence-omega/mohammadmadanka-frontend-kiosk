@@ -1,6 +1,7 @@
 import App from "@/App";
 import AddToCard from "@/pages/addToCardPage";
-import BirthdayCardsPage from "@/pages/BirthdayCardsPage";
+import CardsPage from "@/pages/CardsPage";
+import BirthdayCardsPage from "@/pages/CardsPage";
 import HomePage from "@/pages/Home";
 import MessageCustomizerPage from "@/pages/MessageCustomizerPage";
 import NotFound from "@/pages/NotFound";
@@ -27,13 +28,14 @@ const routes = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "/birthday-cards",
-        element: <BirthdayCardsPage />,
+        path: "/occasion",
+        element: <OccasionPage/>,
       },
       {
-        path: "/occasion",
-        element: <OccasionPage />,
+        path: "/cards",
+        element: <CardsPage />,
       },
+
       {
         path: "/add",
         element: <AddToCard/>,

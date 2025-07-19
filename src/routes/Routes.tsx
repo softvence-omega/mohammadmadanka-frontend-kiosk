@@ -2,10 +2,16 @@ import App from "@/App";
 import AddToCard from "@/pages/addToCardPage";
 import BirthdayCardsPage from "@/pages/BirthdayCardsPage";
 import HomePage from "@/pages/Home";
+import MessageCustomizerPage from "@/pages/MessageCustomizerPage";
 import NotFound from "@/pages/NotFound";
+import OccasionPage from "@/pages/OccasionPage";
 import PersonalisePage from "@/pages/PersonalisePage";
 import PersonalisePage2 from "@/pages/PersonalisePage2";
+import PersonalisePage3 from "@/pages/PersonalisePage3";
+import PersonalisePage4 from "@/pages/PersonalisePage4";
+import PersonalisePage5 from "@/pages/PersonalisePage5";
 import QrCodePage from "@/pages/QrcodePage";
+import ShoppingCartPage from "@/pages/ShoppingCartPage";
 import { createBrowserRouter } from "react-router-dom";
 
 
@@ -25,6 +31,10 @@ const routes = createBrowserRouter([
         element: <BirthdayCardsPage />,
       },
       {
+        path: "/occasion",
+        element: <OccasionPage />,
+      },
+      {
         path: "/add",
         element: <AddToCard/>,
       },
@@ -39,6 +49,26 @@ const routes = createBrowserRouter([
       {
         path: "/qrcode",
         element: <QrCodePage/>,
+      },
+      {
+        path: "/personalize3",
+        element: <PersonalisePage3/>,
+      },
+      {
+        path: "/personalize4",
+        element: <PersonalisePage4/>,
+      },
+      {
+        path: "/personalize5",
+        element: <PersonalisePage5/>,
+      },
+      {
+        path: "/shopping",
+        element: <ShoppingCartPage/>,
+      },
+            {
+        path: "/msg",
+        element: <MessageCustomizerPage/>,
       },
 
     ],

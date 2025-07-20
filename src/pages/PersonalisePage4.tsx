@@ -4,8 +4,34 @@ import BackButton from '@/components/shared/BackButton';
 import FirstIconButton from '@/components/shared/FirstIconButton';
 import NormalButton from '@/components/shared/NormalButton';
 import { Eye, ShoppingCart } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function PersonalisePage4() {
+    const location = useLocation();
+
+  const navigate = useNavigate();
+
+    const selectedCard = location.state || {
+    id: 1,
+  title: "Birthday Card",
+  image: "/cards/birthday.png",
+  description: "Lorem ipsum dolor sit amet consectetur. Magna fusce ipsum sodales turpis dignissim eu ullamcorper.",
+  size: "Standard, 15 X 21 cm",
+  price: 49.99
+  };
+
+
+
+
+  const handleChangePhoto = () => {
+    navigate('/qrcode', { state: selectedCard });
+  };
+
+  const handleAddText = () => {
+    navigate('/personalize5', { state: selectedCard });
+  };
+
+
   return (
     <CommonWrapper>
           <div className="mx-auto mt-[80px] ml-[40px] mr-[40px] ">
@@ -40,8 +66,8 @@ export default function PersonalisePage4() {
         <div className="mt-20">
           <Personalise4 imageSrc="/cards/i3.png" />
           <div className='flex justify-center gap-4  mt-10'>
-            <NormalButton text="Change Photo" col="#54CDD1" icon="/icons/img.png" />
-            <NormalButton text="Add Text" col="#FF5757" icon="/icons/txt.png" />
+            <NormalButton text="Change Photo" col="#54CDD1" icon="/icons/img.png" onClick={handleChangePhoto}/>
+            <NormalButton text="Add Text" col="#FF5757" icon="/icons/txt.png" onClick={handleAddText}/>
 
           </div>
 

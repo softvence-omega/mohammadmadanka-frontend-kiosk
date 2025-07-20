@@ -1,8 +1,30 @@
 import CommonWrapper from "@/common/CommonWrapper";
 import QRCode from "@/components/Personalise/QrCode";
 import NormalButton from "@/components/shared/NormalButton";
+import { useLocation, useNavigate } from 'react-router-dom';
+
+
 
 export default function QrCodePage() {
+  const location = useLocation();
+
+  const navigate = useNavigate();
+
+    const selectedCard = location.state || {
+    id: 1,
+  title: "Birthday Card",
+  image: "/cards/birthday.png",
+  description: "Lorem ipsum dolor sit amet consectetur. Magna fusce ipsum sodales turpis dignissim eu ullamcorper.",
+  size: "Standard, 15 X 21 cm",
+  price: 49.99
+  };
+
+
+     const handleCancel = () => {
+     navigate('/personalize3', { state: selectedCard });
+  };
+
+
     return (
        <CommonWrapper>
         <div className="mx-auto bg-[#00000033] pt-31 pb-80">
@@ -19,16 +41,13 @@ export default function QrCodePage() {
                     {/* Buttons */}
                     <div className="flex w-full mt-20 mb-20 justify-center">
                         {/* Cancel Button */}
-                        <NormalButton text="Cancel" col="#FF5757" />
+                        <NormalButton text="Cancel" col="#FF5757" onClick={handleCancel}/>
                         {/* Upload Button can go here if needed */}
                     </div>
 
                 </div>
 
-        </div>
-            
-
-           
+        </div>          
          </CommonWrapper>
 
 

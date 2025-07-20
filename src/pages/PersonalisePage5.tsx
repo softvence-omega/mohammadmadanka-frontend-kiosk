@@ -3,8 +3,24 @@ import Keyboard from '@/components/Personalise/keybord';
 import Personalise5 from '@/components/Personalise/personalise5';
 import BackButton from '@/components/shared/BackButton';
 import NormalButton from '@/components/shared/NormalButton';
+import { useState } from 'react';
 
 export default function PersonalisePage5() {
+
+   const [typedText, setTypedText] = useState("");
+   const [cardText, setCardText] = useState("Your custom text");
+   const imageSrc= "cards/i3.png"
+
+  const handleInput = (char: string) => {
+    if (char === "⌫") {
+      setTypedText((prev) => prev.slice(0, -1));
+    } else {
+      setTypedText((prev) => prev + char);
+    }
+  };
+
+
+
   return (
     <CommonWrapper>
           <div className="mx-auto mt-[80px] ml-[40px] mr-[40px] mb-[154px]">
@@ -18,10 +34,17 @@ export default function PersonalisePage5() {
           ADD YOUR TEXT
         </h3>
 
+        <input
+      type="text"
+      value={cardText}
+      onChange={(e) => setCardText(e.target.value)}
+      className="border border-gray-300 px-2 py-1 rounded mb-4"
+    />
+
         <div className="mt-20">
-          <Personalise5 imageSrc="/cards/i3.png" />
+          <Personalise5 imageSrc={imageSrc} text={cardText}  />
         <div className='mt-20'>
-        <Keyboard/>
+        <Keyboard onInput={handleInput}/>
        </div>
           <div className='flex justify-center gap-4  mt-20'>
             <NormalButton text="Save" col="#FF5757" />
@@ -29,14 +52,7 @@ export default function PersonalisePage5() {
           </div>
 
         </div>
-
-
-
-
       </div>
-
-
-
     </CommonWrapper>
   );
 

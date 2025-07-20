@@ -1,10 +1,9 @@
-// pages/AddToCard.tsx
-'use client';
-
+// pages/AddToCart.tsx
 import CommonWrapper from '@/common/CommonWrapper';
 import AddCard from '../components/addToCard/AddCard';
 import AddButton from '@/components/addToCard/AddButton';
 import BackButton from '@/components/shared/BackButton';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const fakeCardData = {
   id: 1,
@@ -15,10 +14,15 @@ const fakeCardData = {
   price: 49.99
 };
 
-export default function AddToCard() {
+export default function AddToCart() {
+    const location = useLocation();
+  const navigate = useNavigate();
+
   const handleAddToCart = () => {
     console.log("Added to cart:", fakeCardData);
     alert(`"${fakeCardData.title}" added to cart!`);
+    navigate("/personalize");
+    
     // You can later replace this with cart context or localStorage
   };
 

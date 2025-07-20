@@ -3,12 +3,14 @@ import React from "react";
 interface NormalButtonProps {
   text: string;
   col: string;
-  icon?: string; // made optional for shared interface
+  icon?: string;
+  onClick?: () => void; 
 }
 
-export const NormalButton: React.FC<NormalButtonProps> = ({ text, col, icon }) => {
+export const NormalButton: React.FC<NormalButtonProps> = ({ text, col, icon, onClick }) => {
   return (
     <button
+      onClick={onClick}
       className="flex items-center justify-center w-[248px] h-[56px] rounded-full px-6 py-4 gap-[12px]"
       style={{ backgroundColor: col }}
     >
@@ -26,5 +28,4 @@ export const NormalButton: React.FC<NormalButtonProps> = ({ text, col, icon }) =
   );
 };
 
-// Optional: default export one of them
 export default NormalButton;

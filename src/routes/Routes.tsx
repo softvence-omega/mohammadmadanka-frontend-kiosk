@@ -1,7 +1,6 @@
 import App from "@/App";
-import AddToCard from "@/pages/addToCardPage";
+import AddToCart from "@/pages/addToCartPage";
 import CardsPage from "@/pages/CardsPage";
-import BirthdayCardsPage from "@/pages/CardsPage";
 import HomePage from "@/pages/Home";
 import MessageCustomizerPage from "@/pages/MessageCustomizerPage";
 import NotFound from "@/pages/NotFound";
@@ -33,12 +32,12 @@ const routes = createBrowserRouter([
       },
       {
         path: "/cards",
-        element: <CardsPage />,
+        element: <CardsPage/>,
       },
 
       {
         path: "/add",
-        element: <AddToCard/>,
+        element: <AddToCart/>,
       },
       {
         path: "/personalize",

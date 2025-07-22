@@ -6,7 +6,7 @@ type Props = {
 };
 
 export default function Personalise3({ templateSrc,imageSrc }: Props) {
-   const [rotation, setRotation] = useState(0); // degrees
+  const [rotation, setRotation] = useState(0); // degrees
   const [scale, setScale] = useState(1);       // zoom factor
   const [position, setPosition] = useState({ x: 0, y: 0 });
 

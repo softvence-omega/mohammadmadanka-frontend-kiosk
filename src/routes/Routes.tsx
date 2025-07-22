@@ -10,6 +10,8 @@ import PersonalisePage2 from "@/pages/PersonalisePage2";
 import PersonalisePage3 from "@/pages/PersonalisePage3";
 import PersonalisePage4 from "@/pages/PersonalisePage4";
 import PersonalisePage5 from "@/pages/PersonalisePage5";
+import PersonalisePage6 from "@/pages/PersonalisePage6";
+import PreviewPage from "@/pages/PreviewPage";
 import QrCodePage from "@/pages/QrcodePage";
 import ShoppingCartPage from "@/pages/ShoppingCartPage";
 import { createBrowserRouter } from "react-router-dom";
@@ -64,13 +66,22 @@ const routes = createBrowserRouter([
         element: <PersonalisePage5/>,
       },
       {
+        path: "/personalize6",
+        element: <PersonalisePage6/>,
+      },
+      {
         path: "/shopping",
         element: <ShoppingCartPage/>,
       },
-            {
+      {
         path: "/msg",
         element: <MessageCustomizerPage/>,
       },
+            {
+        path: "/Preview",
+        element: <PreviewPage/>,
+      },
+
 
     ],
   },

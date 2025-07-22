@@ -34,7 +34,7 @@ export default function PersonalisePage4() {
 
   return (
     <CommonWrapper>
-          <div className="mx-auto ml-[40px] mr-[40px] ">
+          <div className="mx-auto mt-[80px] ml-[40px] mr-[40px] ">
               {/* Header */}
               <div className="flex items-center justify-between w-full gap-125">
                   {/* Back Button */}
@@ -67,7 +67,7 @@ export default function PersonalisePage4() {
           <Personalise4 imageSrc="/cards/i3.png" />
           <div className='flex justify-center gap-4  mt-10'>
             <NormalButton text="Change Photo" col="#54CDD1" icon="/icons/img.png" onClick={handleChangePhoto}/>
-            <NormalButton text="Add Text" col="#FF5757" icon="/icons/txt.png" onClick={handleAddText}/>
+            <NormalButton text="Edit Text" col="#FF5757" icon="/icons/txt.png" onClick={handleAddText}/>
 
           </div>
 

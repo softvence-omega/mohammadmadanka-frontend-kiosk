@@ -137,7 +137,7 @@ export default function CardPage() {
   };
 
   return (
-    <CommonWrapper>
+    <CommonWrapper className="relative">
       <div className="mx-auto mt-[75px] ml-[40px] mr-[40px] mb-[40px]">
         <div className="flex items-center justify-between w-[663px]">
           <BackButton />
@@ -153,7 +153,6 @@ export default function CardPage() {
         {/* Filters & Rude Toggle */}
         <div className="flex flex-col mt-15">
           <FilterButtons selected={selectedFilter} setSelected={setSelectedFilter} />
-          <NextButton />
         </div>
 
         <div className='mt-10'>

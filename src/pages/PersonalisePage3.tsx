@@ -34,7 +34,7 @@ export default function      PersonalisePage3() {
 
   return (
     <CommonWrapper>
-      <div className="mx-auto mt-[80px] ml-[40px] mr-[40px] justify-items-center ">
+      <div className="mx-auto ml-[40px] mr-[40px] justify-items-center ">
         {/* Header */}
         <div className="flex items-center justify-between w-full">
           <BackButton />

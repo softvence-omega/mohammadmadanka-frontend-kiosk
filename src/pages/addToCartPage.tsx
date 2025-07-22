@@ -28,7 +28,7 @@ export default function AddToCart() {
 
   return (
     <CommonWrapper>
-      <div className="mx-auto mt-[80px] ml-[40px] mr-[40px] mb-20">
+      <div className="mx-auto  ml-[40px] mr-[40px] mb-20">
         {/* Header */}
         <div className="flex items-center justify-between w-full">
           <BackButton />

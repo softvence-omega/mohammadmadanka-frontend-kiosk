@@ -43,7 +43,8 @@ const Home = () => {
   };
 
   return (
-    <CommonWrapper>
+    
+    <CommonWrapper >
       <Banner />
       <div className="flex justify-center mt-15">
         <SearchBar placeholder="Choose gift" />

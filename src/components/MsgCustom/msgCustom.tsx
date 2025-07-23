@@ -86,7 +86,7 @@ const keyboardRows = [
 ]
 
 export default function MessageCustomizer() {
-  const [message, setMessage] = useState("Write your message here")
+  const [message, setMessage] = useState("")
   const [selectedColor, setSelectedColor] = useState("#FF5757")
   const [fontSize, setFontSize] = useState(16)
   const [selectedFont, setSelectedFont] = useState("Arial")
@@ -107,7 +107,7 @@ export default function MessageCustomizer() {
   }
 
   return (
-    <div className=" mx-auto border-2 bg-gray-50">
+    <div className=" mx-auto bg-gray-50">
       {/* Header */}
       <div className="text-center ">
         <h3 className=" h-[58px] text-[48px] leading-[120%] text-[#1E1E1E] text-center uppercase tracking-[-0.02em] font-baloo font-normal">
@@ -163,11 +163,11 @@ export default function MessageCustomizer() {
         {/* Center Panel - Message Area */}
         <div className="ml-8 mr-8 flex flex-col items-center gap-8">
           <Card className="w-[512px] h-[725px] bg-white border border-[#D9D9D9] shadow-[0px_0px_6.1px_5px_rgba(0,0,0,0.3)] rounded-[4px] flex items-center justify-center">
-            <CardContent className="p-0 h-full relative">
+            <CardContent className="p-0 h-full relative ">
               <Textarea
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="w-full h-full border-0 resize-none  text-center text-2xl p-8"
+                className="w-full h-full border-0  resize-none  text-center text-2xl p-8"
                 style={{
                   color: selectedColor,
                   fontSize: `${fontSize}px`,

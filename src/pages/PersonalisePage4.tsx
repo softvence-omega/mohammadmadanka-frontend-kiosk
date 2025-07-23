@@ -20,7 +20,15 @@ export default function PersonalisePage4() {
   price: 49.99
   };
 
+  const handlePreview = ()=>
+  {
+    navigate('/preview', { state: selectedCard });
+  }
 
+    const handleAddToCart = ()=>
+  {
+    navigate('/shopping', { state: selectedCard });
+  }
 
 
   const handleChangePhoto = () => {
@@ -34,7 +42,7 @@ export default function PersonalisePage4() {
 
   return (
     <CommonWrapper>
-          <div className="mx-auto ml-[40px] mr-[40px] ">
+          <div className="mx-auto pt-20 ml-[40px] mr-[40px] pb-20">
               {/* Header */}
               <div className="flex items-center justify-between w-full gap-125">
                   {/* Back Button */}
@@ -42,13 +50,17 @@ export default function PersonalisePage4() {
 
 
                   <div className='flex items-center gap-4 '>
-                                      <FirstIconButton
+                    <FirstIconButton
+                      onClick={handlePreview}
+
+                    
                       text="Preview"
                       color="#FF5757"
                       bsgColor="#FFFFFF"
                       icon={<Eye size={20}/>}
                   />
                   <FirstIconButton
+                      onClick={handleAddToCart}
                       text="Add to Cart"
                       color="#FFFFFF"
                       bsgColor="#FF5757"
@@ -68,7 +80,6 @@ export default function PersonalisePage4() {
           <div className='flex justify-center gap-4  mt-10'>
             <NormalButton text="Change Photo" col="#54CDD1" icon="/icons/img.png" onClick={handleChangePhoto}/>
             <NormalButton text="Add Text" col="#FF5757" icon="/icons/txt.png" onClick={handleAddText}/>
-
           </div>
 
         </div>

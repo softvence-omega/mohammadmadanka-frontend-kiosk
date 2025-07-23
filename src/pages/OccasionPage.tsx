@@ -53,7 +53,7 @@ const OccasionPage = () => {
 
   return (
     <CommonWrapper>
-      <div className="flex justify-center mt-15">
+      <div className="flex justify-center pt-15">
         <SearchBar placeholder="Choose by Occasion" />
       </div>
       <div className="mt-15 mb-6 bg-gray-50">

@@ -1,6 +1,8 @@
 import React from "react";
 
 type Props = {
+   onClick: () => void;
+
   text: string;
   color?: string; // default: "#FF5757"
   bsgColor?: string; // default: "#FFEEEE"
@@ -8,6 +10,7 @@ type Props = {
 };
 
 export default function FirstIconButton({
+  onClick, 
   text,
   color,
   bsgColor,
@@ -15,6 +18,8 @@ export default function FirstIconButton({
 }: Props) {
   return (
     <button
+      onClick={onClick}
+
       className={`flex items-center px-6 py-4 gap-3 w-[186px] h-[56px] justify-center rounded-full border`}
       style={{ borderColor: "#FF5757", backgroundColor: bsgColor  }}
     >

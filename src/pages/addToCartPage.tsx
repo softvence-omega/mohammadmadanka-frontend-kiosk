@@ -15,7 +15,7 @@ const fakeCardData = {
 };
 
 export default function AddToCart() {
-    const location = useLocation();
+  const location = useLocation();
   const navigate = useNavigate();
 
   const handleAddToCart = () => {
@@ -28,7 +28,7 @@ export default function AddToCart() {
 
   return (
     <CommonWrapper>
-      <div className="mx-auto  ml-[40px] mr-[40px] mb-20">
+      <div className="mx-auto pt-20 ml-[40px] mr-[40px] pb-25">
         {/* Header */}
         <div className="flex items-center justify-between w-full">
           <BackButton />
@@ -37,7 +37,7 @@ export default function AddToCart() {
           </span>
         </div>
 
-        <div className="flex flex-col mt-16 items-center gap-20 w-full max-w-[605px] h-[1058px] mx-auto">
+        <div className="flex flex-col mt-16 items-center  w-full max-w-[605px] h-[1058px] mx-auto">
           <AddCard card={fakeCardData} />
           <AddButton onAddToCart={handleAddToCart} />
         </div>

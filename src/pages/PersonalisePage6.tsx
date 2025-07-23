@@ -21,7 +21,12 @@ export default function PersonalisePage4() {
   };
 
 
+   const handlePreview = () => {
+    navigate('/preview', { state: selectedCard });
+   }
 
+   const handleAddToCart = () => {
+    navigate("/shopping");}
 
   const handleChangePhoto = () => {
     navigate('/qrcode', { state: selectedCard });
@@ -34,7 +39,7 @@ export default function PersonalisePage4() {
 
   return (
     <CommonWrapper>
-          <div className="mx-auto mt-[80px] ml-[40px] mr-[40px] ">
+          <div className="mx-auto pt-20 ml-[40px] mr-[40px] pb-20">
               {/* Header */}
               <div className="flex items-center justify-between w-full gap-125">
                   {/* Back Button */}
@@ -42,13 +47,15 @@ export default function PersonalisePage4() {
 
 
                   <div className='flex items-center gap-4 '>
-                                      <FirstIconButton
+                  <FirstIconButton
+                      onClick={handlePreview}
                       text="Preview"
                       color="#FF5757"
                       bsgColor="#FFFFFF"
                       icon={<Eye size={20}/>}
                   />
                   <FirstIconButton
+                      onClick={handleAddToCart}
                       text="Add to Cart"
                       color="#FFFFFF"
                       bsgColor="#FF5757"

@@ -3,15 +3,17 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Edit, Trash2, Printer, Plus, Minus } from "lucide-react"
+import { useNavigate } from "react-router-dom"
 
 export default function ShoppingCard() {
+  const navigate = useNavigate()
   const [quantity, setQuantity] = useState(1)
 
   const incrementQuantity = () => setQuantity((prev) => prev + 1)
   const decrementQuantity = () => setQuantity((prev) => Math.max(1, prev - 1))
 
   return (
-    <div className="flex flex-row items-start m-10 gap-8 h-[495px] border border-gray-300 rounded-2xl bg-white">
+    <div className="flex flex-row items-start mb-10 gap-8 h-[495px] border border-gray-300 rounded-2xl bg-white">
       {/* Left side - Card Image */}
       <div className="w-[312px] h-[442px] mt-6 ml-6 shadow-[0_0_6.1px_5px_rgba(0,0,0,0.3)] justify-between  bg-cover bg-center">
         <img src="cards/i3.png" alt="Birthday Card Design" className="w-full h-full shadow-2xl" />
@@ -27,19 +29,26 @@ export default function ShoppingCard() {
 
             <div className="flex flex-col mt-8 items-start gap-5 w-full">
               {/* Edit Front Design Button */}
-              <Button className="w-[312px] h-11 bg-[#5CE1E6] hover:bg-[#4BC5CA] border border-[#5CE1E6] rounded-full text-[#EFFCFD] font-semibold font-['Montserrat']">
+              <Button
+                onClick={() => navigate("/personalize6")}
+                className="w-[312px] h-11 bg-[#5CE1E6] hover:bg-[#4BC5CA] border border-[#5CE1E6] rounded-full text-[#EFFCFD] font-semibold font-['Montserrat']">
                 <Edit className="w-6 h-6 mr-2" />
                 Edit Front Design
               </Button>
 
               {/* Add Inside Message Button */}
               <Button
+                onClick={() => navigate("/msg")}
                 variant="outline"
                 className="w-[312px] h-11 border border-[#5CE1E6] rounded-full text-[#5CE1E6] hover:bg-[#5CE1E6] hover:text-white font-semibold font-['Montserrat'] bg-transparent"
               >
                 <Edit className="w-6 h-6 mr-2" />
                 Add Inside Message
               </Button>
+
+              <div className="w-[111.53px] h-[158px] mt-5 bg-white rounded-[4px]  shadow-[0_0_6.1px_5px_rgba(0,0,0,0.3)] flex items-center justify-center text-black text-[10px] font-medium">
+                Happy Birthday
+              </div>
             </div>
           </div>
 
@@ -63,7 +72,7 @@ export default function ShoppingCard() {
                 className="w-18 h-10 bg-[#FFEEEE] border border-gray-300 rounded-full hover:bg-red-100"
                 onClick={decrementQuantity}
               >
-                <Minus className="w-6 h-6 text-[#FF5757]" />    
+                <Minus className="w-6 h-6 text-[#FF5757]" />
               </Button>
 
               <div className="w-36 h-10 bg-gray-200 border border-gray-300 rounded-full flex items-center justify-center">

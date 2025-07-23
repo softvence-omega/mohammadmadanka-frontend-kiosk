@@ -7,19 +7,19 @@ const Header = () => {
   const navData: NavItem[] = [
     {
       title: "Card",
-      id: 1,
+      path: "/cards",//show all cards
     },
     {
       title: "Gift",
-      id: 2,
+      path: "/",
     },
     {
       title: "Christmas",
-      id: 3,
+      path: "/cards",// show only Christmas occation cards
     },
   ];
   return (
-    <CommonWrapper>
+    <CommonWrapper >
       <nav className="w-full ">
         {/* Middle Section */}
         <div className="bg-[#FF5757] py-8 px-10 h-40 flex items-center justify-between relative">

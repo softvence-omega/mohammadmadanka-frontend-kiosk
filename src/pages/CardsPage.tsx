@@ -120,17 +120,22 @@ export default function CardPage() {
   const [selectedFilter, setSelectedFilter] = useState<string | null>(null);
   const [showRude, setShowRude] = useState(false);
 
-  if (!category || !occasion) {
-    return <div className="text-center mt-20 text-xl text-red-600">Missing category or occasion data</div>;
+  if (!category) {
+    return (
+      <div className="text-center mt-20 text-xl text-red-600">
+        Missing category data
+      </div>
+    );
   }
 
-  const filteredCards = allCards.filter(
-    (card) =>
-      card.categoryId === category.id &&
-      card.occasionId === occasion.id &&
-      (selectedFilter ? card.filter === selectedFilter : true) &&
-      (showRude ? true : !card.rude) // hide rude cards if toggle off
-  );
+  const filteredCards = allCards.filter((card) => {
+    const categoryMatch = card.categoryId === category.id;
+    const occasionMatch = occasion ? card.occasionId === occasion.id : true;
+    const filterMatch = selectedFilter ? card.filter === selectedFilter : true;
+    const rudeMatch = showRude ? true : !card.rude;
+
+    return categoryMatch && occasionMatch && filterMatch && rudeMatch;
+  });
 
   const handleCardClick = (card: typeof allCards[0]) => {
     navigate("/add", { state: { card, category, occasion } });
@@ -138,11 +143,11 @@ export default function CardPage() {
 
   return (
     <CommonWrapper className="relative">
-      <div className="mx-auto mt-[75px] ml-[40px] mr-[40px] mb-[40px]">
+      <div className="mx-auto pt-[75px] ml-[40px] mr-[40px] mb-[40px]">
         <div className="flex items-center justify-between w-[663px]">
           <BackButton />
           <h1 className="text-[40px] font-baloo text-[#1E1E1E] capitalize">
-            {occasion.title} Cards
+            {occasion ? `${occasion.title} Cards` : "All Cards"}
           </h1>
         </div>
 
@@ -160,17 +165,23 @@ export default function CardPage() {
         </div>
 
         {/* Card Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 mt-5 ">
-          {filteredCards.map((card, index) => (
-            <div onClick={() => handleCardClick(card)} key={index}>
-              <Card
-                title={card.title}
-                subtitle={card.subtitle}
-                message={card.message}
-                imageSrc={card.imageSrc}
-              />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 mt-5">
+          {filteredCards.length > 0 ? (
+            filteredCards.map((card, index) => (
+              <div onClick={() => handleCardClick(card)} key={index}>
+                <Card
+                  title={card.title}
+                  subtitle={card.subtitle}
+                  message={card.message}
+                  imageSrc={card.imageSrc}
+                />
+              </div>
+            ))
+          ) : (
+            <div className="col-span-full text-center text-gray-500 text-lg">
+              No cards found for the selected filters.
             </div>
-          ))}
+          )}
         </div>
       </div>
     </CommonWrapper>

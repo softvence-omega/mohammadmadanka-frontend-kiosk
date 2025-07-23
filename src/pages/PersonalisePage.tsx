@@ -23,7 +23,7 @@ export default function PersonalisePage() {
 
   return (
     <CommonWrapper>
-      <div className="mx-auto ml-[40px] mr-[40px]">
+      <div className="mx-auto pt-20 ml-[40px] mr-[40px]">
         {/* Header */}
         <div className="flex items-center justify-between w-full ">
           {/* Back Button */}

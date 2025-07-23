@@ -18,77 +18,35 @@ import { createBrowserRouter } from "react-router-dom";
 
 
 
-
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
+      { path: "", element: <HomePage /> },
+      { path: "occasion/:categoryId", element: <OccasionPage /> },
+      { path: "cards/:occasionId", element: <CardsPage /> },
+      { path: "add/:cardId", element: <AddToCart /> },
       {
-        path: "/",
-        element: <HomePage />,
+        path: "personalize/:cardId",
+       //element: <PersonaliseWrapper />,
+        children: [
+          { path: "step1", element: <PersonalisePage /> },
+          { path: "step2", element: <PersonalisePage2 /> },
+          { path: "photo", element: <QrCodePage /> },
+          { path: "step3", element: <PersonalisePage3 /> },
+          { path: "step4", element: <PersonalisePage4 /> },
+          { path: "text", element: <PersonalisePage5 /> },
+          { path: "step6", element: <PersonalisePage6 /> },
+        ],
       },
-      {
-        path: "/occasion",
-        element: <OccasionPage/>,
-      },
-      {
-        path: "/cards",
-        element: <CardsPage/>,
-      },
-
-      {
-        path: "/add",
-        element: <AddToCart/>,
-      },
-      {
-        path: "/personalize",
-        element: <PersonalisePage/>,
-      },
-      {
-        path: "/personalize2",
-        element: <PersonalisePage2/>,
-      },
-      {
-        path: "/qrcode",
-        element: <QrCodePage/>,
-      },
-      {
-        path: "/personalize3",
-        element: <PersonalisePage3/>,
-      },
-      {
-        path: "/personalize4",
-        element: <PersonalisePage4/>,
-      },
-      {
-        path: "/personalize5",
-        element: <PersonalisePage5/>,
-      },
-      {
-        path: "/personalize6",
-        element: <PersonalisePage6/>,
-      },
-      {
-        path: "/shopping",
-        element: <ShoppingCartPage/>,
-      },
-      {
-        path: "/msg",
-        element: <MessageCustomizerPage/>,
-      },
-            {
-        path: "/Preview",
-        element: <PreviewPage/>,
-      },
-
-
+      { path: "shopping", element: <ShoppingCartPage /> },
+      { path: "msg/:cardId", element: <MessageCustomizerPage /> },
+      { path: "preview/:cardId", element: <PreviewPage /> },
     ],
   },
-  {
-    path: "*",
-    element: <NotFound />,
-  },
+  { path: "*", element: <NotFound /> },
 ]);
+
 
 export default routes;

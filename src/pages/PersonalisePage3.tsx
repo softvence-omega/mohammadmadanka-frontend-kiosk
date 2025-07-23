@@ -2,34 +2,61 @@ import CommonWrapper from '@/common/CommonWrapper';
 import Personalise3 from '@/components/Personalise/Personalise3';
 import BackButton from '@/components/shared/BackButton';
 import NormalButton from '@/components/shared/NormalButton';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
 
-export default function      PersonalisePage3() {
+const allCards = [
+  {
+    id: "c1",
+    title: "Birthday Card",
+    image: "/cards/i3.png",
+    description: "Wishing you a day as fantastic as you are!",
+    size: "Standard, 15 X 21 cm",
+    price: 49.99,
+  },
+  {
+    id: "c2",
+    title: "Mom's Card",
+    image: "/cards/i2.png",
+    description: "You're the best! Enjoy your special day.",
+    size: "Standard, 15 X 21 cm",
+    price: 59.99,
+  },
+  {
+    id: "c3",
+    title: "Funny Old Friend Card",
+    image: "/cards/i1.png",
+    description: "But not wiser 😏",
+    size: "Standard, 15 X 21 cm",
+    price: 39.99,
+  },
+];
+
+export default function PersonalisePage3() {
+  const { cardId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
 
+  const selectedCard = allCards.find(card => card.id === cardId);
 
-    const selectedCard = location.state || {
-    id: 1,
-  title: "Birthday Card",
-  image: "/cards/birthday.png",
-  description: "Lorem ipsum dolor sit amet consectetur. Magna fusce ipsum sodales turpis dignissim eu ullamcorper.",
-  size: "Standard, 15 X 21 cm",
-  price: 49.99
-  };
+  if (!selectedCard) {
+    return (
+      <div className="text-center mt-20 text-xl text-red-600">
+        Card not found.
+      </div>
+    );
+  }
 
-
-  // Get uploaded image from state or fallback to default
+  // uploadedImage passed through navigation state from previous page (e.g. QR code upload)
   const uploadedImage = location.state?.uploadedImage || "/cards/pic.png";
-  const templateImage = location.state?.image || "/cards/birthday.png";
+  const templateImage = selectedCard.image;
 
   const handleChange = () => {
-    navigate('/qrcode', { state: selectedCard });
+    navigate(`/personalize/${selectedCard.id}/photo`);
   };
 
   const handleSave = () => {
-    // You may forward image to next page as well
-    navigate('/personalize4', { state: { uploadedImage } });
+    // Pass uploadedImage in state when navigating forward
+    navigate(`/personalize/${selectedCard.id}/step4`, { state: { uploadedImage } });
   };
 
   return (
@@ -45,17 +72,17 @@ export default function      PersonalisePage3() {
         </h3>
 
         <div className="mt-20">
-          <Personalise3 templateSrc={templateImage}  imageSrc={uploadedImage} />
+          <Personalise3 templateSrc={templateImage} imageSrc={uploadedImage} />
           <div className="flex justify-center mt-10">
             <NormalButton text="Change Photo" col="#FF5757" onClick={handleChange} />
           </div>
         </div>
 
-        <div className="mt-14 border border-amber-50">
+        <div className="mt-14 border border-amber-50 relative">
           <div className="absolute ml-56 w-[43.03px] h-[43.03px] rounded-full bg-[#FFFFFF] flex items-center justify-center">
             <img
               src="/icons/Trash.png"
-              alt="Plus Icon"
+              alt="Trash Icon"
               className="w-6 h-6"
             />
           </div>
@@ -63,13 +90,13 @@ export default function      PersonalisePage3() {
           {/* Uploaded image */}
           <img
             src={uploadedImage}
-            alt="Human"
+            alt="Uploaded"
             className="w-[250px] mt-6 h-[320px] shadow-[0px_8px_15.3px_rgba(0,0,0,0.2)] rounded-[8px]"
           />
           <div className="flex mb-7 justify-center mt-10">
             <NormalButton text="Save" col="#5CE1E6" onClick={handleSave} />
           </div>
-        </div>  
+        </div>
       </div>
     </CommonWrapper>
   );

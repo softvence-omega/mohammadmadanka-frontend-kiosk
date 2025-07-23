@@ -4,20 +4,51 @@ import Preview from "@/components/Personalise/Preview";
 import FirstIconButton from "@/components/shared/FirstIconButton";
 import NormalButton from "@/components/shared/NormalButton";
 import { ShoppingCart } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+
+const allCards = [
+  {
+    id: "c1",
+    title: "Birthday Card",
+    image: "/cards/i3.png",
+    description: "Wishing you a day as fantastic as you are!",
+    size: "Standard, 15 X 21 cm",
+    price: 49.99,
+  },
+  {
+    id: "c2",
+    title: "Mom's Card",
+    image: "/cards/i2.png",
+    description: "You're the best! Enjoy your special day.",
+    size: "Standard, 15 X 21 cm",
+    price: 59.99,
+  },
+  {
+    id: "c3",
+    title: "Funny Old Friend Card",
+    image: "/cards/i1.png",
+    description: "But not wiser 😏",
+    size: "Standard, 15 X 21 cm",
+    price: 39.99,
+  },
+];
+
+
 
 export default function PreviewPage() {
     const navigate = useNavigate();
 
-    // Dummy data for the selected card
-    const selectedCard = {
-        id: 1,
-        title: "Birthday Card",
-        image: "/cards/birthday.png",
-        description: "Lorem ipsum dolor sit amet consectetur. Magna fusce ipsum sodales turpis dignissim eu ullamcorper.",
-        size: "Standard, 15 X 21 cm",
-        price: 49.99
-    };
+    const { cardId } = useParams();
+
+  const selectedCard = allCards.find(card => card.id === cardId);
+
+  if (!selectedCard) {
+    return (
+      <div className="text-center mt-20 text-xl text-red-600">
+        Card not found.
+      </div>
+    );
+  }
 
 
     const handleAddToCart = () => {
@@ -52,7 +83,7 @@ export default function PreviewPage() {
 
                         ></div>
                     </div>
-                    <Preview imageSrc="/cards/i3.png" />
+                    <Preview imageSrc={selectedCard.image || "/cards/i3.png"} />
                     <div className="flex justify-center mt-12">
                     <NormalButton text="Close" col="#54CDD1" onClick={handleClose}/>
                     </div>

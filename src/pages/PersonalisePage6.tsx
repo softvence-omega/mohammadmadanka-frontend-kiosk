@@ -4,7 +4,7 @@ import BackButton from '@/components/shared/BackButton';
 import FirstIconButton from '@/components/shared/FirstIconButton';
 import NormalButton from '@/components/shared/NormalButton';
 import { Eye, ShoppingCart } from 'lucide-react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const allCards = [
   {
@@ -33,23 +33,19 @@ const allCards = [
   },
 ];
 
-
 export default function PersonalisePage6() {
   const { cardId } = useParams();
-  
+  const navigate = useNavigate();
+
   const selectedCard = allCards.find(card => card.id === cardId);
-  
-    if (!selectedCard) {
+
+  if (!selectedCard) {
     return (
       <div className="text-center mt-20 text-xl text-red-600">
         Card not found.
       </div>
     );
   }
-
-  const navigate = useNavigate();
-  
-  // Get card data passed via state, fallback to default
 
   const handlePreview = () => {
     navigate(`/preview/${selectedCard.id}`, { state: { card: selectedCard } });
@@ -64,7 +60,7 @@ export default function PersonalisePage6() {
   };
 
   const handleAddText = () => {
-    navigate('/personalize5', { state: selectedCard });
+    navigate(`/personalize/${selectedCard.id}/text`, { state: selectedCard });
   };
 
   return (
@@ -72,9 +68,7 @@ export default function PersonalisePage6() {
       <div className="mx-auto pt-20 ml-[40px] mr-[40px] pb-20">
         {/* Header */}
         <div className="flex items-center justify-between w-full gap-125">
-          {/* Back Button */}
           <BackButton />
-
           <div className="flex items-center gap-4">
             <FirstIconButton
               onClick={handlePreview}
@@ -91,7 +85,6 @@ export default function PersonalisePage6() {
               icon={<ShoppingCart size={20} />}
             />
           </div>
-
           <div />
         </div>
 
@@ -100,8 +93,7 @@ export default function PersonalisePage6() {
         </h3>
 
         <div className="mt-20">
-          {/* Use card image dynamically */}
-          <Personalise4 imageSrc={selectedCard.image || "/cards/i3.png"} />
+          <Personalise4 imageSrc={selectedCard.image} />
           <div className="flex justify-center gap-4 mt-10">
             <NormalButton
               text="Change Photo"

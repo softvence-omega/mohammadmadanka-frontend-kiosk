@@ -16,25 +16,27 @@ interface Props {
 const OccasionCard = ({ occasions, category, onClick }: Props) => {
   return (
     <div className="py-8 px-4">
-      <h1 className="text-3xl font-bold mb-6 text-center">
+      <h1 className="text-xl sm:text-3xl font-bold mb-6 text-center">
         Choose Occasion for {category?.title}
       </h1>
-      <div className="w-[1000px] mx-auto flex flex-wrap justify-between gap-y-8">
+
+      <div className="w-full max-w-[1080px] mx-auto flex flex-wrap justify-center gap-6 sm:gap-8">
         {occasions.map((item) => (
           <div
             key={item.id}
-            className="relative w-[312px] h-[442px] border border-[#FF5757] rounded-2xl bg-white flex flex-col items-center cursor-pointer"
+            className="relative w-full sm:w-[312px] h-[442px] sm:h-[442px] border border-[#FF5757] rounded-2xl bg-white flex flex-col items-center cursor-pointer"
             onClick={() => onClick(item)}
           >
-            <div className="w-[272px] h-[272px] bg-[#EFFCFD] rounded-full mt-8 flex items-center justify-center">
+            <div className="w-[220px] h-[220px] sm:w-[272px] sm:h-[272px] bg-[#EFFCFD] rounded-full mt-6 sm:mt-8 flex items-center justify-center">
               <img
                 src={item.image}
                 alt={item.title}
-                className="max-h-[180px] object-contain"
+                className="max-h-[140px] sm:max-h-[180px] object-contain"
               />
             </div>
-            <div className="absolute bottom-10 w-full text-center">
-              <p className="text-[32px] font-normal capitalize text-[#1E1E1E] font-[Baloo]">
+
+            <div className="absolute bottom-6 sm:bottom-10 w-full text-center">
+              <p className="text-lg sm:text-[32px] font-normal capitalize text-[#1E1E1E] font-[Baloo]">
                 {item.title}
               </p>
             </div>

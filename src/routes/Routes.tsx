@@ -14,6 +14,7 @@ import PersonalisePage6 from "@/pages/PersonalisePage6";
 import PreviewPage from "@/pages/PreviewPage";
 import QrCodePage from "@/pages/QrcodePage";
 import ShoppingCartPage from "@/pages/ShoppingCartPage";
+import UploadPhoto from "@/pages/UploadPhoto";
 import { createBrowserRouter } from "react-router-dom";
 
 
@@ -29,7 +30,6 @@ const routes = createBrowserRouter([
       { path: "add/:cardId", element: <AddToCart /> },
       {
         path: "personalize/:cardId",
-       //element: <PersonaliseWrapper />,
         children: [
           { path: "step1", element: <PersonalisePage /> },
           { path: "step2", element: <PersonalisePage2 /> },
@@ -45,7 +45,9 @@ const routes = createBrowserRouter([
       { path: "preview/:cardId", element: <PreviewPage /> },
     ],
   },
+  { path: "/upload-photo", element: <UploadPhoto/> },
   { path: "*", element: <NotFound /> },
+
 ]);
 
 

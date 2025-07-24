@@ -51,20 +51,22 @@ export default function PersonalisePage() {
 
   return (
     <CommonWrapper>
-      <div className="mx-auto pt-20 ml-[40px] mr-[40px]">
-        {/* Header */}
-        <div className="flex items-center justify-between w-full">
-          <BackButton />
-          <span className="w-[61px] h-[24px] text-[20px] leading-[120%] font-normal font-['Baloo'] underline text-[#1E1E1E]">
-            ${selectedCard.price.toFixed(2)}
-          </span>
-        </div>
+  <div className="pt-20 ml-4 mr-4 sm:ml-[40px] sm:mr-[40px] mx-auto">
+    
+    {/* Header */}
+    <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-2 sm:gap-0 w-full">
+      <BackButton />
+      <span className="text-base sm:text-[20px] w-auto sm:w-[61px] h-auto sm:h-[24px] leading-[120%] font-normal font-['Baloo'] underline text-[#1E1E1E]">
+        ${selectedCard.price.toFixed(2)}
+      </span>
+    </div>
 
-        <div className="flex flex-col mt-10 items-center gap-10 w-full max-w-[605px] h-[1058px] mx-auto">
-          <AddCard card={selectedCard} />
-          <PersonaliseButton onClick={handleNext} />
-        </div>
-      </div>
-    </CommonWrapper>
+    {/* Card Preview + Button */}
+    <div className="flex flex-col mt-10 items-center gap-10 w-full max-w-[605px] h-auto sm:h-[1058px] mx-auto px-2">
+      <AddCard card={selectedCard} />
+      <PersonaliseButton onClick={handleNext} />
+    </div>
+  </div>
+</CommonWrapper>
   );
 }

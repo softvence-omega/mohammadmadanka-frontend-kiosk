@@ -18,6 +18,7 @@ const Home = () => {
     { id: "money-boxes", title: "Money Boxes", image: "/piggy.png", alt: "Money Boxes" },
     { id: "photo-frames", title: "Photo Frames", image: "/photo-frames.png", alt: "Photo Frames" },
     { id: "coasters", title: "Coasters", image: "/coasters.png", alt: "Coasters" },
+
   ];
 
   const handleClick = (item: any) => {
@@ -25,16 +26,20 @@ const Home = () => {
   };
 
   return (
-    <CommonWrapper>
-      <Banner />
-      <div className="flex justify-center mt-15">
-        <SearchBar placeholder="Choose gift" />
-      </div>
-      <div className="mt-15 mb-6 bg-gray-50">
-        <ProductGrid products={products} onClick={handleClick} />
-      </div>
-    </CommonWrapper>
-  );
-};
+  <CommonWrapper>
+    <Banner />
+
+    {/* SearchBar */}
+    <div className="flex justify-center mt-15 px-4">
+      <SearchBar placeholder="Choose gift" />
+    </div>
+
+    {/* Product Grid */}
+    <div className="mt-15 mb-6 bg-gray-50 px-4">
+      <ProductGrid products={products} onClick={handleClick} />
+    </div>
+  </CommonWrapper>
+);
+}
 
 export default Home;

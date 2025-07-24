@@ -34,17 +34,20 @@ const OccasionPage = () => {
 
   return (
     <CommonWrapper>
-      <div className="flex justify-center pt-15">
-        <SearchBar placeholder="Choose by Occasion" />
-      </div>
-      <div className="mt-15 mb-6 bg-gray-50">
-        <OccasionCard
-          occasions={filteredOccasions}
-          category={category}
-          onClick={handleClick}
-        />
-      </div>
-    </CommonWrapper>
+    {/* Search bar */}
+    <div className="flex justify-center pt-15 px-4">
+      <SearchBar placeholder="Choose by Occasion" />
+    </div>
+
+    {/* Occasion cards */}
+    <div className="mt-15 mb-6 bg-gray-50 px-4">
+      <OccasionCard
+        occasions={filteredOccasions}
+        category={category}
+        onClick={handleClick}
+      />
+    </div>
+  </CommonWrapper>
   );
 };
 

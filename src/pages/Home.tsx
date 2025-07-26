@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // homePage.tsx
 import CommonWrapper from "@/common/CommonWrapper";
 import Banner from "@/components/home/Banner";

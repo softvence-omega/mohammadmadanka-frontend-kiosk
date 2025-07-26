@@ -76,7 +76,7 @@ export default function PersonalisePage5() {
           <div />
         </div>
 
-        <h3 className="h-[58px] text-center mt-10 text-[48px] leading-[120%] tracking-[-0.02em] uppercase font-[400] text-[#1E1E1E]">
+        <h3 className="h-[58px] font-baloo text-center mt-10 text-[48px] leading-[120%] tracking-[-0.02em] uppercase font-[400] text-[#1E1E1E]">
           ADD YOUR TEXT
         </h3>
 

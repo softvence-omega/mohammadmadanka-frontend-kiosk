@@ -34,8 +34,7 @@ const Keyboard: React.FC<KeyboardProps> = ({ onInput }) => {
   return (
     <div className="flex mt-10 flex-col gap-4 items-center">
       {/* Optional: Display current message */}
-      <div className="text-gray-500 mb-4">{message}</div>
-
+      
       {/* Main Rows */}
       {keyboardRows.map((row, rowIndex) => (
         <div key={rowIndex} className="flex gap-2">

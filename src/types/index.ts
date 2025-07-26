@@ -17,5 +17,5 @@ export interface User {
 
   export type NavItem = {
   title: string;
-  id: number;
+  path: string;
 };

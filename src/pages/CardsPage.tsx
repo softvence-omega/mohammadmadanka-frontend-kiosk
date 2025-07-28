@@ -2,7 +2,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import CommonWrapper from '@/common/CommonWrapper';
 import BackButton from '@/components/shared/BackButton';
-import SearchBar from '@/components/shared/SearchBar';
 import FilterButtons from '@/components/BirthdayCard/FilterButton';
 import RudeToggle from '@/components/BirthdayCard/RudeToggle';
 import Card from '@/components/BirthdayCard/imgCard';
@@ -87,34 +86,46 @@ export default function CardPage() {
   };
 
 return (
-  <CommonWrapper className="relative">
-    <div className="pt-[75px] mb-[40px] ml-[40px] mr-[40px] sm:ml-[40px] sm:mr-[40px] ">
-      
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0 w-full sm:w-[663px]">
+<CommonWrapper className="relative">
+  <div className="pt-[40px] mb-[40px] px-[40px]">
+    {/* Header */}
+    <div className=" flex items-center  w-full sm:w-[663px]">
+      {/* Back Button - Left */}
+      <div className="z-10">
         <BackButton />
-        <h1 className="text-2xl sm:text-[40px] font-baloo text-[#1E1E1E] capitalize text-center sm:text-left">
-          {occasion.title} Cards
-        </h1>
       </div>
 
-      {/* SearchBar */}
-      <div className="flex justify-center mt-18">
-        <SearchBar />
+      {/* Title - Center */}
+      <h1 className="absolute left-1/2 transform -translate-x-1/2 text-2xl sm:text-[40px] font-baloo text-[#1E1E1E] capitalize text-center whitespace-nowrap">
+        {occasion.title} Cards
+      </h1>
+
+      {/* Rude Toggle - Right */}
+      <div className="absolute right-0 z-10 pr-5">
+        <RudeToggle value={showRude} setValue={setShowRude} />
       </div>
+    </div>
+
+      {/* SearchBar */}
+      {/* <div className="flex justify-center mt-18">
+        <SearchBar />
+      </div> */}
 
       {/* Filter Buttons */}
       <div className="flex flex-col mt-15">
-        <FilterButtons selected={selectedFilter} setSelected={setSelectedFilter} />
+        <FilterButtons
+          selected={selectedFilter}
+          setSelected={setSelectedFilter}
+        />
       </div>
 
       {/* Rude Toggle */}
-      <div className="mt-10">
+      {/* <div className="mt-10">
         <RudeToggle value={showRude} setValue={setShowRude} />
-      </div>
+      </div> */}
 
       {/* Grid of Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 mt-5">
+      <div className="grid grid-cols-1 pt-5 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 mt-5">
         {filteredCards.length > 0 ? (
           filteredCards.map((card, index) => (
             <div onClick={() => handleCardClick(card)} key={index}>

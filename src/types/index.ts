@@ -19,3 +19,12 @@ export interface User {
   title: string;
   path: string;
 };
+
+
+export interface Hole {
+  id: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}

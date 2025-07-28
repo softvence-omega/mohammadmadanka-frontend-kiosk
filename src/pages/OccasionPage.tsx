@@ -40,7 +40,7 @@ const OccasionPage = () => {
     </div>
 
     {/* Occasion cards */}
-    <div className="mt-15 mb-6 bg-gray-50 px-4">
+    <div className=" mb-6 bg-gray-50 px-4">
       <OccasionCard
         occasions={filteredOccasions}
         category={category}

@@ -9,12 +9,12 @@ const Header = () => {
   const navData: NavItem[] = [
     {
       title: "Card",
-      path: "/cards/all", // Show all cards using a generic "all" occasionId
+      path: "/occasion/cards", // Show all cards using a generic "all" occasionId
     },
-    {
-      title: "Gift",
-      path: "/", // Adjust this if you have a specific gift page
-    },
+    // {
+    //   title: "Gift",
+    //   path: "/", // Adjust this if you have a specific gift page
+    // },
     {
       title: "Christmas",
       path: "/cards/christmas", // Show only Christmas occasion cards

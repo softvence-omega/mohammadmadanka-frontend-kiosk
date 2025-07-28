@@ -45,13 +45,13 @@ const routes = createBrowserRouter([
       { path: "shopping", element: <ShoppingCartPage /> },
       { path: "msg/:cardId", element: <MessageCustomizerPage /> },
       { path: "preview/:cardId", element: <PreviewPage /> },
-      { path: "/upload-template", element: <TemplateInfo/> },
+      //{ path: "/upload-template", element: <TemplateInfo/> },
 
       {path: "test", element: <TestPage />},
     ],
   },
   { path: "/upload-photo", element: <UploadPhoto/> },
-  { path: "/upload-template", element: <TemplateInfo/> },
+  //{ path: "/upload-template", element: <TemplateInfo/> },
   { path: "*", element: <NotFound /> },
 
 ]);

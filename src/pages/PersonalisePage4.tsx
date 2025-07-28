@@ -1,10 +1,10 @@
-import CommonWrapper from '@/common/CommonWrapper';
-import Personalise4 from '@/components/Personalise/personalise4';
-import BackButton from '@/components/shared/BackButton';
-import FirstIconButton from '@/components/shared/FirstIconButton';
-import NormalButton from '@/components/shared/NormalButton';
-import { Eye, ShoppingCart } from 'lucide-react';
-import { useNavigate, useLocation, useParams } from 'react-router-dom';
+import CommonWrapper from "@/common/CommonWrapper";
+import Personalise4 from "@/components/Personalise/personalise4";
+import BackButton from "@/components/shared/BackButton";
+import FirstIconButton from "@/components/shared/FirstIconButton";
+import NormalButton from "@/components/shared/NormalButton";
+import { Eye, ShoppingCart } from "lucide-react";
+import { useNavigate, useParams } from "react-router-dom";
 
 const allCards = [
   {
@@ -37,7 +37,7 @@ export default function PersonalisePage4() {
   const { cardId } = useParams();
   const navigate = useNavigate();
 
-  const selectedCard = allCards.find(card => card.id === cardId);
+  const selectedCard = allCards.find((card) => card.id === cardId);
 
   if (!selectedCard) {
     return (

@@ -1,10 +1,10 @@
-import CommonWrapper from '@/common/CommonWrapper';
-import Keyboard from '@/components/Personalise/keybord';
-import Personalise5 from '@/components/Personalise/personalise5';
-import BackButton from '@/components/shared/BackButton';
-import NormalButton from '@/components/shared/NormalButton';
-import { useState } from 'react';
-import { useNavigate, useParams, useLocation } from 'react-router-dom';
+import CommonWrapper from "@/common/CommonWrapper";
+import Keyboard from "@/components/Personalise/keybord";
+import Personalise5 from "@/components/Personalise/personalise5";
+import BackButton from "@/components/shared/BackButton";
+import NormalButton from "@/components/shared/NormalButton";
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 const allCards = [
   {
@@ -36,9 +36,10 @@ const allCards = [
 export default function PersonalisePage5() {
   const navigate = useNavigate();
   const { cardId } = useParams();
-  const location = useLocation();
 
-  const selectedCard = allCards.find(card => card.id === cardId);
+  const selectedCard = allCards.find((card) => card.id === cardId);
+
+  const [cardText, setCardText] = useState<string>("");
 
   if (!selectedCard) {
     return (
@@ -48,10 +49,8 @@ export default function PersonalisePage5() {
     );
   }
   // Find card image based on cardId, fallback to default
-  const card = allCards.find(c => c.id === cardId) || allCards[0];
+  const card = allCards.find((c) => c.id === cardId) || allCards[0];
   const imageSrc = card.image;
-
-  const [cardText, setCardText] = useState<string>("");
 
   const handleInput = (char: string) => {
     if (char === "⌫") {

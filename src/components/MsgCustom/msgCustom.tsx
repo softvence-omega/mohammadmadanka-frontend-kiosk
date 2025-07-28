@@ -1,10 +1,18 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/MsgCustom/Card"
-import { Textarea } from "@/components/MsgCustom/TextArea"
-import { Minus, Plus, AlignLeft, AlignCenter, AlignRight, Globe, X } from "lucide-react"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/MsgCustom/Card";
+import { EditableDiv } from "@/components/MsgCustom/TextArea";
+import {
+  Minus,
+  Plus,
+  AlignLeft,
+  AlignCenter,
+  AlignRight,
+  Globe,
+  X,
+} from "lucide-react";
 
 const stickers = [
   "🎉",
@@ -31,7 +39,7 @@ const stickers = [
   "💗",
   "💘",
   "💙",
-]
+];
 
 const fontColors = [
   "#FEFE07",
@@ -64,7 +72,7 @@ const fontColors = [
   "#9459C8",
   "#781D1D",
   "#438F94",
-]
+];
 
 const fonts = [
   { name: "LOBSTER", family: "Lobster, cursive" },
@@ -79,33 +87,32 @@ const fonts = [
   { name: "SATISFY", family: "Satisfy, cursive" },
 ];
 
-
 const keyboardRows = [
   ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
   ["a", "s", "d", "f", "g", "h", "j", "k", "l", "enter"],
   ["z", "x", "c", "v", "b", "n", "m", "!", "?"],
-]
+];
 
 export default function MessageCustomizer() {
-  const [message, setMessage] = useState("")
-  const [selectedColor, setSelectedColor] = useState("#FF5757")
-  const [fontSize, setFontSize] = useState(50)
-  const [selectedFont, setSelectedFont] = useState("Arial")
-  const [textAlign, setTextAlign] = useState("center")
+  const [message, setMessage] = useState("");
+  const [selectedColor, setSelectedColor] = useState("#FF5757");
+  const [fontSize, setFontSize] = useState(50);
+  const [selectedFont, setSelectedFont] = useState("Arial");
+  const [textAlign, setTextAlign] = useState("center");
 
   const handleKeyPress = (key: string) => {
     if (key === "enter") {
-      setMessage((prev) => prev + "\n")
+      setMessage((prev) => prev + "\n");
     } else if (key === "space") {
-      setMessage((prev) => prev + " ")
+      setMessage((prev) => prev + " ");
     } else {
-      setMessage((prev) => prev + key)
+      setMessage((prev) => prev + key);
     }
-  }
+  };
 
   const handleStickerClick = (sticker: string) => {
-    setMessage((prev) => prev + sticker)
-  }
+    setMessage((prev) => prev + sticker);
+  };
 
   return (
     <div className=" mx-auto bg-gray-50">
@@ -123,7 +130,9 @@ export default function MessageCustomizer() {
           {/* Stickers */}
           <Card className="w-52 h-[325px]">
             <CardContent className="p-6 h-full flex flex-col">
-              <h3 className="text-2xl font-semibold text-center mt-4 mb-4 text-gray-800">Stickers</h3>
+              <h3 className="text-2xl font-semibold text-center mt-4 mb-4 text-gray-800">
+                Stickers
+              </h3>
               <div className="flex-1 overflow-y-auto scrollbar-hide">
                 <div className="grid grid-cols-3 gap-4">
                   {stickers.map((sticker, index) => (
@@ -143,15 +152,20 @@ export default function MessageCustomizer() {
           {/* Font Colors */}
           <Card className="w-52 h-[358px]">
             <CardContent className="p-6 h-full flex flex-col">
-              <h3 className="text-2xl font-semibold text-center mt-4 mb-4 text-gray-800">Font Colours</h3>
+              <h3 className="text-2xl font-semibold text-center mt-4 mb-4 text-gray-800">
+                Font Colours
+              </h3>
               <div className="flex-1 overflow-y-auto scrollbar-hide">
                 <div className="grid grid-cols-3 gap-4">
                   {fontColors.map((color, index) => (
                     <button
                       key={index}
                       onClick={() => setSelectedColor(color)}
-                      className={`w-8 h-8 rounded-full border-2 hover:scale-110 transition-transform ${selectedColor === color ? "border-gray-800" : "border-transparent"
-                        }`}
+                      className={`w-8 h-8 rounded-full border-2 hover:scale-110 transition-transform ${
+                        selectedColor === color
+                          ? "border-gray-800"
+                          : "border-transparent"
+                      }`}
                       style={{ backgroundColor: color }}
                     />
                   ))}
@@ -165,10 +179,9 @@ export default function MessageCustomizer() {
         <div className="ml-8 mr-8 flex flex-col items-center gap-8">
           <Card className="w-[512px] h-[725px] bg-white border border-[#D9D9D9] shadow-[0px_0px_6.1px_5px_rgba(0,0,0,0.3)] rounded-[4px] flex items-center justify-center">
             <CardContent className="p-0 h-full relative ">
-              <Textarea
+              <EditableDiv
                 value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                className="w-full h-full border-0  resize-none  text-center text-2xl p-8"
+                onChange={(val) => setMessage(val)}
                 style={{
                   color: selectedColor,
                   fontSize: `${fontSize}px`,
@@ -180,7 +193,6 @@ export default function MessageCustomizer() {
           </Card>
 
           {/* Virtual Keyboard */}
-
         </div>
 
         {/* Right Panel */}
@@ -188,14 +200,17 @@ export default function MessageCustomizer() {
           {/* Fonts */}
           <Card className="w-53 h-[423px]">
             <CardContent className="p-6">
-              <h3 className="text-2xl font-semibold text-center mb-4 text-gray-800">Fonts</h3>
+              <h3 className="text-2xl font-semibold text-center mb-4 text-gray-800">
+                Fonts
+              </h3>
               <div className="flex flex-col gap-4.75 items-center">
                 {fonts.map((font, index) => (
                   <button
                     key={index}
                     onClick={() => setSelectedFont(font.family)}
-                    className={`text-sm uppercase text-gray-600 hover:text-gray-800 transition-colors ${selectedFont === font.family ? "font-bold" : ""
-                      }`}
+                    className={`text-sm uppercase text-gray-600 hover:text-gray-800 transition-colors ${
+                      selectedFont === font.family ? "font-bold" : ""
+                    }`}
                     style={{ fontFamily: font.family }}
                   >
                     {font.name}
@@ -207,8 +222,10 @@ export default function MessageCustomizer() {
 
           {/* Font Size */}
           <Card className="w-53 h-[101px]">
-            <CardContent >
-              <h3 className="text-2xl font-semibold text-center mb-4 text-gray-800">Font Size</h3>
+            <CardContent>
+              <h3 className="text-2xl font-semibold text-center mb-4 text-gray-800">
+                Font Size
+              </h3>
               <div className="flex items-center gap-3">
                 <Button
                   onClick={() => setFontSize(Math.max(8, fontSize - 2))}
@@ -218,7 +235,9 @@ export default function MessageCustomizer() {
                   <Minus className="w-4 h-4" />
                 </Button>
                 <div className="flex-1 w-15 h-10 bg-gray-200 rounded-full  flex items-center justify-center border border-gray-300">
-                  <span className="text-lg font-medium text-gray-800">{fontSize}</span>
+                  <span className="text-lg font-medium text-gray-800">
+                    {fontSize}
+                  </span>
                 </div>
                 <Button
                   onClick={() => setFontSize(Math.min(72, fontSize + 2))}
@@ -234,26 +253,34 @@ export default function MessageCustomizer() {
           {/* Align Text */}
           <Card className="w-52">
             <CardContent>
-              <h3 className="text-2xl font-semibold text-center mb-8 text-gray-800">Align Text</h3>
+              <h3 className="text-2xl font-semibold text-center mb-8 text-gray-800">
+                Align Text
+              </h3>
               <div className="flex justify-center mb-2 gap-8">
                 <Button
                   onClick={() => setTextAlign("left")}
                   size="sm"
-                  className={`w-8 h-8 p-0 ${textAlign === "left" ? "bg-gray-500" : "bg-gray-300"} hover:bg-gray-600`}
+                  className={`w-8 h-8 p-0 ${
+                    textAlign === "left" ? "bg-gray-500" : "bg-gray-300"
+                  } hover:bg-gray-600`}
                 >
                   <AlignLeft className="w-4 h-4" />
                 </Button>
                 <Button
                   onClick={() => setTextAlign("center")}
                   size="sm"
-                  className={`w-8 h-8 p-0 ${textAlign === "center" ? "bg-gray-500" : "bg-gray-300"} hover:bg-gray-600`}
+                  className={`w-8 h-8 p-0 ${
+                    textAlign === "center" ? "bg-gray-500" : "bg-gray-300"
+                  } hover:bg-gray-600`}
                 >
                   <AlignCenter className="w-4 h-4" />
                 </Button>
                 <Button
                   onClick={() => setTextAlign("right")}
                   size="sm"
-                  className={`w-8 h-8 p-0 ${textAlign === "right" ? "bg-gray-500" : "bg-gray-300"} hover:bg-gray-600`}
+                  className={`w-8 h-8 p-0 ${
+                    textAlign === "right" ? "bg-gray-500" : "bg-gray-300"
+                  } hover:bg-gray-600`}
                 >
                   <AlignRight className="w-4 h-4" />
                 </Button>
@@ -270,8 +297,11 @@ export default function MessageCustomizer() {
               <Button
                 key={keyIndex}
                 onClick={() => handleKeyPress(key)}
-                className={`w-14 h-14 rounded-full text-white font-medium ${key === "enter" ? "w-28 bg-cyan-400 hover:bg-cyan-500" : "bg-red-300 hover:bg-red-400"
-                  }`}
+                className={`w-14 h-14 rounded-full text-white font-medium ${
+                  key === "enter"
+                    ? "w-28 bg-cyan-400 hover:bg-cyan-500"
+                    : "bg-red-300 hover:bg-red-400"
+                }`}
               >
                 {key === "enter" ? "enter" : key}
               </Button>
@@ -281,7 +311,9 @@ export default function MessageCustomizer() {
 
         {/* Bottom Row */}
         <div className="flex gap-2 items-center">
-          <Button className="w-14 h-14 rounded-full bg-cyan-400 hover:bg-cyan-500 text-white">123</Button>
+          <Button className="w-14 h-14 rounded-full bg-cyan-400 hover:bg-cyan-500 text-white">
+            123
+          </Button>
           <Button className="w-14 h-14 rounded-full bg-cyan-400 hover:bg-cyan-500 text-white">
             <Globe className="w-5 h-5" />
           </Button>
@@ -291,13 +323,14 @@ export default function MessageCustomizer() {
           >
             space
           </Button>
-          <Button className="w-14 h-14 rounded-full bg-cyan-400 hover:bg-cyan-500 text-white">.?123</Button>
+          <Button className="w-14 h-14 rounded-full bg-cyan-400 hover:bg-cyan-500 text-white">
+            .?123
+          </Button>
           <Button className="w-14 h-14 rounded-full bg-cyan-400 hover:bg-cyan-500 text-white">
             <X className="w-5 h-5" />
           </Button>
         </div>
       </div>
-
     </div>
-  )
+  );
 }

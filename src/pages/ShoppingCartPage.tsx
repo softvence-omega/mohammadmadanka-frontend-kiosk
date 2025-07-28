@@ -48,7 +48,7 @@ export default function ShoppingCartPage() {
 
         <button
           onClick={() => navigate("/")}
-          className="flex items-center mt-20 px-6 py-4 gap-3 w-[221px] h-[56px] border border-[#FF5757] rounded-[49px] mx-auto"
+          className="flex items-center mt-20 px-5 py-4 gap-3 w-[221px] h-[56px] border border-[#FF5757] rounded-[49px] mx-auto"
         >
           <span className="text-[20px] leading-[120%] font-[400] font-baloo text-[#FF5757]">
             Continue Shopping

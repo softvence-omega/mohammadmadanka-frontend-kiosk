@@ -9,9 +9,18 @@ interface Props {
 }
 
 const filters = [
-  'For Him', 'For Her', 'For Boy', 'For Girl',
-  'For Him', 'For Her', 'For Boy', 'For Girl',
-  'For Him', 'For Her', 'For Boy', 'For Girl'
+  "For Him",
+  "For Her",
+  "For Boy",
+  "For Girl",
+  "For Him",
+  "For Her",
+  "For Boy",
+  "For Girl",
+  "For Him",
+  "For Her",
+  "For Boy",
+  "For Girl",
 ];
 
 export default function FilterButtons({ selected, setSelected }: Props) {
@@ -19,7 +28,7 @@ export default function FilterButtons({ selected, setSelected }: Props) {
 
   const scrollRight = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 200, behavior: 'smooth' });
+      scrollRef.current.scrollBy({ left: 200, behavior: "smooth" });
     }
   };
 
@@ -28,16 +37,22 @@ export default function FilterButtons({ selected, setSelected }: Props) {
       {/* Scrollable Filter Buttons */}
       <div
         ref={scrollRef}
-        className="flex w-full overflow-x-auto gap-4 pr-24 scrollbar-hide scrollbar-w-thin "
+        className="flex w-full overflow-x-auto gap-4 pr-24 scrollbar-hide "
+        style={{
+          scrollbarWidth: "none", // Firefox
+          msOverflowStyle: "none", // IE and Edge
+        }}
       >
         {filters.map((filter, i) => (
           <button
             key={i}
             onClick={() => setSelected(filter)}
             className={`w-[128px] h-[41px] border whitespace-nowrap text-[16px] font-medium font-['Nunito Sans'] px-4 py-2 rounded-full
-              ${selected === filter
-                ? 'bg-[#41A0A3] text-white border-[#41A0A3]'
-                : 'text-[#41A0A3] border-[#41A0A3]'}
+              ${
+                selected === filter
+                  ? "bg-[#41A0A3] text-white border-[#41A0A3]"
+                  : "text-[#41A0A3] border-[#41A0A3]"
+              }
             `}
           >
             {filter}

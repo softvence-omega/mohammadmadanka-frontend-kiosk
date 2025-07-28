@@ -67,17 +67,18 @@ const fontColors = [
 ]
 
 const fonts = [
-  { name: "LOBSTER", family: "cursive" },
-  { name: "GRAVITAS ONE", family: "serif" },
-  { name: "KRISTI", family: "cursive" },
-  { name: "DANCING SCRIPT", family: "cursive" },
-  { name: "PACIFICO", family: "cursive" },
-  { name: "ALLURA", family: "cursive" },
-  { name: "ALEO", family: "serif" },
-  { name: "SACRAMENTO", family: "cursive" },
-  { name: "BRUSH SCRIPT MT", family: "cursive" },
-  { name: "SATISFY", family: "cursive" },
-]
+  { name: "LOBSTER", family: "Lobster, cursive" },
+  { name: "GRAVITAS ONE", family: "Gravitas One, serif" },
+  { name: "KRISTI", family: "Kristi, cursive" },
+  { name: "DANCING SCRIPT", family: "Dancing Script, cursive" },
+  { name: "PACIFICO", family: "Pacifico, cursive" },
+  { name: "ALLURA", family: "Allura, cursive" },
+  { name: "ALEO", family: "Aleo, serif" },
+  { name: "SACRAMENTO", family: "Sacramento, cursive" },
+  { name: "BRUSH SCRIPT MT", family: "Brush Script MT, cursive" },
+  { name: "SATISFY", family: "Satisfy, cursive" },
+];
+
 
 const keyboardRows = [
   ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
@@ -88,7 +89,7 @@ const keyboardRows = [
 export default function MessageCustomizer() {
   const [message, setMessage] = useState("")
   const [selectedColor, setSelectedColor] = useState("#FF5757")
-  const [fontSize, setFontSize] = useState(16)
+  const [fontSize, setFontSize] = useState(50)
   const [selectedFont, setSelectedFont] = useState("Arial")
   const [textAlign, setTextAlign] = useState("center")
 

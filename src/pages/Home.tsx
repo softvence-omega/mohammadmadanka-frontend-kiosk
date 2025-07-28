@@ -3,7 +3,6 @@
 import CommonWrapper from "@/common/CommonWrapper";
 import Banner from "@/components/home/Banner";
 import ProductGrid from "@/components/home/Category";
-import SearchBar from "@/components/shared/SearchBar";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -64,13 +63,13 @@ const Home = () => {
     <CommonWrapper>
       <Banner />
 
-      {/* SearchBar */}
-      <div className="flex justify-center mt-15 px-4">
-        <SearchBar placeholder="Choose gift" />
-      </div>
+      {/* SearchBar
+    <div className="flex justify-center mt-15 px-4">
+      <SearchBar placeholder="Choose gift" />
+    </div> */}
 
       {/* Product Grid */}
-      <div className="mt-15 mb-6 bg-gray-50 px-4">
+      <div className="pt-20 mb-6 bg-gray-50 px-4">
         <ProductGrid products={products} onClick={handleClick} />
       </div>
     </CommonWrapper>

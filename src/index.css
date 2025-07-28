@@ -3,6 +3,47 @@
 .font-baloo {
   font-family: 'Baloo', cursive;
 }
+.font-lobster {
+  font-family: 'Lobster', cursive;
+}
+
+.font-gravitas-one {
+  font-family: 'Gravitas One', serif;
+}
+
+.font-kristi {
+  font-family: 'Kristi', cursive;
+}
+
+.font-dancing-script {
+  font-family: 'Dancing Script', cursive;
+}
+
+.font-pacifico {
+  font-family: 'Pacifico', cursive;
+}
+
+.font-allura {
+  font-family: 'Allura', cursive;
+}
+
+.font-aleo {
+  font-family: 'Aleo', serif;
+}
+
+.font-sacramento {
+  font-family: 'Sacramento', cursive;
+}
+
+.font-satisfy {
+  font-family: 'Satisfy', cursive;
+}
+
+/* Brush Script MT - system font */
+.font-brush-script-mt {
+  font-family: 'Brush Script MT', cursive;
+}
+
 
 @theme {
   --color-website-color-black: #212a31;

@@ -15,10 +15,10 @@ interface Props {
 
 const OccasionCard = ({ occasions, category, onClick }: Props) => {
   return (
-    <div className="py-8 px-4">
-      <h1 className="text-xl sm:text-3xl font-bold mb-6 text-center">
+    <div className="py-15 px-4">
+      {/* <h1 className="text-xl sm:text-3xl font-bold mb-6 text-center">
         Choose Occasion for {category?.title}
-      </h1>
+      </h1> */}
 
       <div className="w-full max-w-[1080px] mx-auto flex flex-wrap justify-center gap-6 sm:gap-8">
         {occasions.map((item) => (

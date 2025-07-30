@@ -14,6 +14,8 @@ import PersonalisePage6 from "@/pages/PersonalisePage6";
 import PreviewPage from "@/pages/PreviewPage";
 import QrCodePage from "@/pages/QrcodePage";
 import ShoppingCartPage from "@/pages/ShoppingCartPage";
+import TemplateInfo from "@/pages/templateUploder";
+import TestPage from "@/pages/test";
 // import TemplateInfo from "@/pages/templateUploder";
 // import TestPage from "@/pages/test";
 import UploadPhoto from "@/pages/UploadPhoto";
@@ -45,9 +47,9 @@ const routes = createBrowserRouter([
       { path: "shopping", element: <ShoppingCartPage /> },
       { path: "msg/:cardId", element: <MessageCustomizerPage /> },
       { path: "preview/:cardId", element: <PreviewPage /> },
-      // { path: "/upload-template", element: <TemplateInfo/> },
+      { path: "/upload-template", element: <TemplateInfo/> },
 
-      // {path: "test", element: <TestPage />},
+      {path: "test", element: <TestPage />},
     ],
   },
   { path: "/upload-photo", element: <UploadPhoto/> },

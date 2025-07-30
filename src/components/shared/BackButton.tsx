@@ -11,7 +11,7 @@ const BackButton = () => {
   return (
     <button
       onClick={handleBack}
-      className="flex items-center gap-1 px-4 py-2 w-[113px] h-[45px] bg-[#FF5757] rounded-full"
+      className="flex items-center gap-1 px-4 py-2 w-[115px] h-[45px] bg-[#FF5757] rounded-full hover:bg-[#FF3B3B] transition-colors duration-300"
     >
       {/* Chevron Icon */}
       <div className="w-6 h-6 flex items-center justify-center rounded-full relative">

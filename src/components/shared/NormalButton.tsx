@@ -11,7 +11,7 @@ export const NormalButton: React.FC<NormalButtonProps> = ({ text, col, icon, onC
   return (
     <button
       onClick={onClick}
-      className="flex items-center justify-center w-[248px] h-[56px] rounded-full px-6 py-4 gap-[12px]"
+      className="flex items-center justify-center w-[248px] h-[56px] hover:w-[250px] rounded-full px-6 py-4 gap-[12px]"
       style={{ backgroundColor: col }}
     >
       <span className="text-white text-[20px] leading-[120%] font-[400] font-baloo">

@@ -1,8 +1,42 @@
-import CommonWrapper from '@/common/CommonWrapper';
-import Personalise3 from '@/components/Personalise/Personalise3';
-import BackButton from '@/components/shared/BackButton';
-import NormalButton from '@/components/shared/NormalButton';
-import { useNavigate, useLocation, useParams } from 'react-router-dom';
+import CommonWrapper from "@/common/CommonWrapper";
+import Personalise3 from "@/components/Personalise/Personalise3";
+import HoleFiller from "@/components/TemplateUpload/Test";
+
+import BackButton from "@/components/shared/BackButton";
+import NormalButton from "@/components/shared/NormalButton";
+import { Hole } from "@/types";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
+
+const holes: Hole[] = [
+  {
+    id: "01c45eb0-22df-484f-a2a8-6768bba95583",
+    x: 48.289289486807746,
+    y: 53.73163660522707,
+    width: 199.75494522503377,
+    height: 209.31259810661425,
+  },
+  {
+    id: "cee2399b-f474-4826-a864-4ec625e50293",
+    x: 271.07065217391306,
+    y: 46.88710374862297,
+    width: 194.85869565217354,
+    height: 217.2257925027541,
+  },
+  {
+    id: "bfd06f17-2f7c-4028-9c10-0dd067a32259",
+    x: 67.83248174026352,
+    y: 464.88150842738247,
+    width: 192.22341851335648,
+    height: 213.23644991802306,
+  },
+  {
+    id: "076b11c5-8f1e-4a6f-9323-961047ac526b",
+    x: 289.0331491712706,
+    y: 495.8341232227491,
+    width: 184.9337016574585,
+    height: 174.33175355450214,
+  },
+];
 
 const allCards = [
   {
@@ -36,7 +70,7 @@ export default function PersonalisePage3() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const selectedCard = allCards.find(card => card.id === cardId);
+  const selectedCard = allCards.find((card) => card.id === cardId);
 
   if (!selectedCard) {
     return (
@@ -48,7 +82,6 @@ export default function PersonalisePage3() {
 
   // uploadedImage passed through navigation state from previous page (e.g. QR code upload)
   const uploadedImage = location.state?.uploadedImage || "/cards/pic.png";
-  const templateImage = selectedCard.image;
 
   const handleChange = () => {
     navigate(`/personalize/${selectedCard.id}/photo`);
@@ -56,7 +89,9 @@ export default function PersonalisePage3() {
 
   const handleSave = () => {
     // Pass uploadedImage in state when navigating forward
-    navigate(`/personalize/${selectedCard.id}/step4`, { state: { uploadedImage } });
+    navigate(`/personalize/${selectedCard.id}/step4`, {
+      state: { uploadedImage },
+    });
   };
 
   return (
@@ -72,19 +107,22 @@ export default function PersonalisePage3() {
         </h3>
 
         <div className="mt-20">
-          <Personalise3 templateSrc={templateImage} imageSrc={uploadedImage} />
+          <HoleFiller
+            holes={holes}
+            templateImageUrl="/template_hole.png" // Update this path
+          />
           <div className="flex justify-center mt-10">
-            <NormalButton text="Change Photo" col="#FF5757" onClick={handleChange} />
+            <NormalButton
+              text="Change Photo"
+              col="#FF5757"
+              onClick={handleChange}
+            />
           </div>
         </div>
 
         <div className="mt-14 border border-amber-50 relative">
           <div className="absolute ml-56 w-[43.03px] h-[43.03px] rounded-full bg-[#FFFFFF] flex items-center justify-center">
-            <img
-              src="/icons/Trash.png"
-              alt="Trash Icon"
-              className="w-6 h-6"
-            />
+            <img src="/icons/Trash.png" alt="Trash Icon" className="w-6 h-6" />
           </div>
 
           {/* Uploaded image */}
